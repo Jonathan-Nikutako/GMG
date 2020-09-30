@@ -49,3 +49,18 @@ Thumbs.db
 
 #python bytecode cache, for some plugins.
 *.pyc
+jo_gameproject_2020_09/Library/ArtifactDB
+
+jo_gameproject_2020_09/Library/ArtifactDB-lock
+
+*.json
+
+jo_gameproject_2020_09/Library/SourceAssetDB
+
+jo_gameproject_2020_09/Library/SourceAssetDB-lock
+
+*.catalog
+
+*.bin
+
+jo_gameproject_2020_09/Temp/UnityLockfile
