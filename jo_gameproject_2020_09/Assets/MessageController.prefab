@@ -282,7 +282,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8752054036821122407}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -634.22986, y: -199.00267, z: 37.74806}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8752054036160996261}
@@ -434,7 +434,7 @@ GameObject:
   - component: {fileID: 8752054037418410659}
   m_Layer: 0
   m_Name: MessageController
-  m_TagString: Untagged
+  m_TagString: Message
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
