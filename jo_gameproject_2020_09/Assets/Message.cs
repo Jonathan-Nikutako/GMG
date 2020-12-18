@@ -139,6 +139,8 @@ public class Message : MonoBehaviour
                     isEndMessage = true;// isEndMessageをtrueにする
                     canvas.transform.GetChild(0).gameObject.SetActive(false);// キャンバスの子オブジェクトを非表示にする 
                     messengerText.text = "";        //メッセンジャーを初期化
+                    //文字表示場所を初期化
+                    messageText.GetComponent<Text>().alignment = TextAnchor.UpperLeft;
                     isWork = false;
 
                     //if (i == stringsCount - 1)// もし、文字列の総行数に達したら、
@@ -198,7 +200,7 @@ public class Message : MonoBehaviour
                 nowLine++;
             }
             //カラーコードなら
-            if (code.Contains("color"))
+            else if (code.Contains("color"))
             {
                 //カラーコード終了でなければカラーコードの更新
                 if (!code.Contains("/"))
@@ -207,6 +209,11 @@ public class Message : MonoBehaviour
                 }
                 //色文字フラグの反転
                 isColor = !isColor;
+            }
+            //文字中央寄せなら
+            else if (code.Contains("center"))
+            {
+                messageText.GetComponent<Text>().alignment = TextAnchor.UpperCenter;
             }
             return true;
         }

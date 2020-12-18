@@ -33,5 +33,17 @@ public class MessageTest : MonoBehaviour
         {
             message.Message("test5");
         }
+        if (Input.GetKeyDown(KeyCode.Alpha6))
+        {
+            message.Message("test6");
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha7))
+        {
+            message.Message("test7");
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha8))
+        {
+            message.Message("test600");
+        }
     }
 }

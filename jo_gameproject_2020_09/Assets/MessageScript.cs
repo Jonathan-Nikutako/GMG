@@ -36,12 +36,18 @@ public class MessageScript : MonoBehaviour
         // string get_message = sr.ReadLine();
         Encoding encoding = Encoding.GetEncoding("utf-8");
         string get_message = File.ReadAllText(@"Assets/message.csv", encoding);
+        //Debug.Log(get_message);
         //改行コードを分割のコンマに変換
         get_message = get_message.Replace(System.Environment.NewLine, ",");
         //改行コードの変換によってつくられる最後のコンマを削除
         get_message = get_message.Remove(get_message.LastIndexOf(","));
         //メッセージのコンマで分割
         load_message = get_message.Split(',');
+
+        //for(int i = 0; i < load_message.Length; i++)
+        //{
+        //    Debug.Log(load_message[i]);
+        //}
 
         //ロードしたメッセージを格納
         Dictionary<string, MessageInfo> message = new Dictionary<string, MessageInfo>();

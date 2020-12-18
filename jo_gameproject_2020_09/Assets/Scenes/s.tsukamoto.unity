@@ -298,50 +298,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8752054036160996281, guid: 0f27a01354689204ea27153d56061d40, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8752054036740824595, guid: 0f27a01354689204ea27153d56061d40, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -96.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8752054036740824595, guid: 0f27a01354689204ea27153d56061d40, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 36.605515
-      objectReference: {fileID: 0}
-    - target: {fileID: 8752054036740824595, guid: 0f27a01354689204ea27153d56061d40, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -267.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 8752054036740824595, guid: 0f27a01354689204ea27153d56061d40, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 147.72083
-      objectReference: {fileID: 0}
-    - target: {fileID: 8752054037149074916, guid: 0f27a01354689204ea27153d56061d40, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -121.46
-      objectReference: {fileID: 0}
-    - target: {fileID: 8752054037149074916, guid: 0f27a01354689204ea27153d56061d40, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 50.208992
-      objectReference: {fileID: 0}
-    - target: {fileID: 8752054037149074916, guid: 0f27a01354689204ea27153d56061d40, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -0.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 8752054037149074916, guid: 0f27a01354689204ea27153d56061d40, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 681.3674
-      objectReference: {fileID: 0}
-    - target: {fileID: 8752054037149074917, guid: 0f27a01354689204ea27153d56061d40, type: 3}
-      propertyPath: m_FontData.m_Alignment
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8752054037149074917, guid: 0f27a01354689204ea27153d56061d40, type: 3}
-      propertyPath: m_Text
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 8752054037418410658, guid: 0f27a01354689204ea27153d56061d40, type: 3}
       propertyPath: m_Name
       value: MessageController
