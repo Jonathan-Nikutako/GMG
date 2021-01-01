@@ -43,7 +43,11 @@ public class MessageTest : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Alpha8))
         {
-            message.Message("test600");
+            message.Message("test8");
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha9))
+        {
+            message.Message("test9");
         }
     }
 }

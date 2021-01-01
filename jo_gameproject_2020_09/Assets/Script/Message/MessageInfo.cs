@@ -8,6 +8,7 @@ public class MessageInfo : MonoBehaviour
     string Id = null;                  //メッセージID
     string messenger = null;           //メッセージ発信者
     string message = null;             //メッセージ内容
+    string image = null;               //表示画像名
 
     public string getId()
     {
@@ -32,5 +33,13 @@ public class MessageInfo : MonoBehaviour
     public void setMessage(string message)
     {
         this.message = message;
+    }
+    public string getImage()
+    {
+        return this.image;
+    }
+    public void setImage(string image)
+    {
+        this.image = image;
     }
 }

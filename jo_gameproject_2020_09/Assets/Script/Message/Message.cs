@@ -32,6 +32,8 @@ public class Message : MonoBehaviour
     private string color_code = "";         //カラーコード
     private bool isColor = false;           //色文字かどうか
     private bool isWork = false;                    //メッセージ表示中に他のメッセージを受け付けない
+    [SerializeField] Image image_left;      //画像表示左側
+    [SerializeField] Image image_right;     //画像表示右側
 
     // Start is called before the first frame update
     void Start()
@@ -131,6 +133,7 @@ public class Message : MonoBehaviour
                 nowLine = 0;// 今の行を0にする
                 elapsedTime = 0f;// 経過時間を0にする
                 textLength = 0;// 文字数を0にする
+                image_init();//立ち絵表示を初期化
                 isOneMessage = false;// isOneMessageを0にする
 
                 if (nowTextNum >= message.Length)// もし、メッセージが全部表示されていたら、
@@ -141,6 +144,8 @@ public class Message : MonoBehaviour
                     messengerText.text = "";        //メッセンジャーを初期化
                     //文字表示場所を初期化
                     messageText.GetComponent<Text>().alignment = TextAnchor.UpperLeft;
+                    //立ち絵表示を初期化
+                    image_init();
                     isWork = false;
 
                     //if (i == stringsCount - 1)// もし、文字列の総行数に達したら、
@@ -175,6 +180,8 @@ public class Message : MonoBehaviour
         //i = 0;// iを0にする
         //stringsCount = message.Length;// 文字列の総行数をmessageの要素数にする
         //conversation = message;// coversationをmessageにする
+        //表示画像の読み込み
+        load_image(message_info);
         canvas.SetActive(true);// キャンバスを表示する
         SetMessage(message);// SetMessageを実行する
         canvas.transform.GetChild(0).gameObject.SetActive(true);// キャンバスの子オブジェクトを表示する
@@ -227,5 +234,32 @@ public class Message : MonoBehaviour
             return true;
         }
         return false;
+    }
+    private void load_image(MessageInfo message_info)
+    {
+        if (message_info.getImage() != null)
+        {
+            string image_name = message_info.getImage();
+            if (image_name.Contains("right"))
+            {
+                image_name = image_name.Replace("right_", "");
+                image_right.gameObject.SetActive(true);
+                image_right.GetComponent<Image>().sprite = Resources.Load<Sprite>(image_name);
+            }
+            else
+            {
+                //right,leftが指定されていない場合も左側に立ち絵を設定
+                image_name = image_name.Replace("left_", "");
+                image_left.gameObject.SetActive(true);
+                image_left.GetComponent<Image>().sprite = Resources.Load<Sprite>(image_name);
+            }
+        }
+    }
+    private void image_init()
+    {
+        image_right.gameObject.SetActive(false);
+        image_right.GetComponent<Image>().sprite = Resources.Load<Sprite>(null);
+        image_left.gameObject.SetActive(false);
+        image_left.GetComponent<Image>().sprite = Resources.Load<Sprite>(null);
     }
 }
