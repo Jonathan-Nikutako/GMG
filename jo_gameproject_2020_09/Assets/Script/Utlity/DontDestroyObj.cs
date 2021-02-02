@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary> このスクリプトをつけると死ななくなる
+/// </summary>
 public class DontDestroyObj : MonoBehaviour
 {
+    [Tooltip("不可壊")]
     public bool DontDestroyEnabled = true;
 
     private static DontDestroyObj instance;
