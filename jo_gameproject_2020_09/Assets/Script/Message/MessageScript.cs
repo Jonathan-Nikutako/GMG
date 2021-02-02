@@ -10,7 +10,7 @@ public class MessageScript : MonoBehaviour
     public Message messageScript;                            // Messageスクリプトを読み込む
     private Dictionary<string, MessageInfo> message_dic;     //メッセージ格納ディクショナリ
 
-    void Start()
+    void Awake()
     {
         message_dic = loadMessage();
     }
@@ -64,6 +64,17 @@ public class MessageScript : MonoBehaviour
             //メッセージ内容格納
             i++;
             message_info.setMessage(load_message[i]);
+
+            //表示画像名格納
+            i++;
+            if (load_message[i].Equals(""))
+            {
+                message_info.setImage(null);
+            }
+            else
+            {
+            message_info.setImage(load_message[i]);
+            }
 
             //keyの設定
             string key = message_info.getId();
