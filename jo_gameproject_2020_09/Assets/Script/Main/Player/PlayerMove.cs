@@ -26,10 +26,15 @@ public class PlayerMove : MonoBehaviour
     void FixedUpdate()
     {
         dashInput = input.DashKey;
-        // ダッシュするか
+        // 地上のみ操作可能
         if (m_PlayerStatas.is_Ground)
         {
             Move();
+        }
+        // 足場に乗るための空中制御
+        else
+        {
+            AirMove();
         }
     }
     private void Move()
@@ -60,6 +65,24 @@ public class PlayerMove : MonoBehaviour
             Is_Dash = false;
         }
         rb.velocity = new Vector2(velcity_x * moveSpeed, rb.velocity.y);
+    }
+    private void AirMove()
+    {
+        float velcity_x;
+
+        if (input.x_Axis > 0)
+        {
+            velcity_x = 0.1f;
+        }
+        else if (input.x_Axis < 0)
+        {
+            velcity_x = -0.1f;
+        }
+        else
+        {
+            velcity_x = 0;
+        }
+        rb.velocity = new Vector2(rb.velocity.x + velcity_x, rb.velocity.y);
     }
 }
 
