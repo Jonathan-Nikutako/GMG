@@ -95,9 +95,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.25}
+  m_Offset: {x: 0, y: -0.3}
   serializedVersion: 2
-  m_Radius: 0.25
+  m_Radius: 0.175
 --- !u!1 &1040680954
 GameObject:
   m_ObjectHideFlags: 0
@@ -191,8 +191,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.30700445, y: 1.0659187, z: 1}
-  m_Center: {x: 0.00411997, y: 0.18951595, z: 0}
+  m_Size: {x: 0.30700445, y: 1.0914168, z: 1}
+  m_Center: {x: 0.0041199625, y: 0.20226502, z: 0}
 --- !u!1 &1295755439
 GameObject:
   m_ObjectHideFlags: 0
@@ -514,6 +514,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   is_Ground: 0
+  CheckPlatform: 1
 --- !u!61 &9202982600043911518
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -585,6 +586,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   is_Ground: 0
+  CheckPlatform: 0
 --- !u!61 &7767211669540657200
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -598,7 +600,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.009916246, y: -0.16412428}
+  m_Offset: {x: 0.0028328449, y: -0.16412428}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -609,7 +611,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.3861941, y: 0.26534885}
+  m_Size: {x: 0.31989887, y: 0.26534885}
   m_EdgeRadius: 0
 --- !u!1 &3932675257726713479
 GameObject:
@@ -627,6 +629,7 @@ GameObject:
   - component: {fileID: 3932675257726713466}
   - component: {fileID: 3932675257726713464}
   - component: {fileID: 3932675257726713467}
+  - component: {fileID: 5497004485909681468}
   - component: {fileID: 7229199529355500825}
   - component: {fileID: 1372452741}
   m_Layer: 0
@@ -739,14 +742,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   headPoint: {fileID: 3719500096626850044}
   groundPoint: {fileID: 1912900458}
-  speed: 1.25
-  dashSpeed: 2.5
+  speed: 2.5
+  dashSpeed: 4
   jumpHeight: 1.2
   jumpSpeed: 6.5
-  stamina: 0
-  calm: 0
+  climingSpeed: 2.5
+  climingDashSpeed: 4
+  stamina: 100
+  calm: 99
+  dashStamina: 4
+  generateStamina: 1
+  staminaCoolTime: 3
   is_Dash: 0
   is_Jump: 0
+  is_Fall: 0
+  is_Climbing: 0
+  is_SpiderThread: 0
+  is_Tear: 0
+  sTSpeedMag: 0.5
+  tearStaminaMag: 2
+  staminaCoolTimer: 0
+  dashTimer: 0
 --- !u!114 &3932675257726713466
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -783,6 +799,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b80e5814ff87f784ea52d178a91d18cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5497004485909681468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3932675257726713479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37217b68a00348647a0977a494f43874, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &7229199529355500825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -808,7 +836,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.0036854148, y: 0.13635892}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -819,5 +847,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.50615954, y: 1.2727178}
   m_EdgeRadius: 0

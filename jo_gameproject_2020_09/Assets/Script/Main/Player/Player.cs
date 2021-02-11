@@ -19,16 +19,27 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
+        // ステータス管理
+
         // ゲージ管理
         // スタミナ
         // ダッシュ中
         if (statas.is_Dash)
         {
-            statas.Stamina -= Time.deltaTime * statas.DashStamina;
+            float tearmag = 1;
+            if (statas.is_Tear)
+            {
+                tearmag = statas.TearStaminaMag;
+            }
+            // ダッシュスタミナ消費
+            statas.Stamina -= Time.deltaTime * statas.DashStamina * tearmag;
+            // クールタイム
             statas.staminaCoolTimer = statas.StaminaCoolTime;
+            statas.dashTimer += Time.deltaTime;
         }
         else
         {
+            statas.dashTimer = 0;
             statas.staminaCoolTimer -= Time.deltaTime;
             if (statas.staminaCoolTimer < 0)
             {

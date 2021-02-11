@@ -28,6 +28,14 @@ public class PlayerStatas : MonoBehaviour
     private float jumpSpeed;
     public float JumpSpeed { get { return jumpSpeed; } }
 
+    [SerializeField, Tooltip("梯子、階段縦移動速度")]
+    private float climingSpeed;
+    public float ClimingSpeed { get { return climingSpeed; } }
+
+    [SerializeField, Tooltip("梯子、階段ダッシュ速度")]
+    private float climingDashSpeed;
+    public float ClimingDashSpeed { get { return climingDashSpeed; } }
+
 
     // ステータス設定項目
     [SerializeField, Range(0, 100), Tooltip("スタミナ")]
@@ -59,11 +67,36 @@ public class PlayerStatas : MonoBehaviour
     [Tooltip("ジャンプしているか")]
     public bool is_Jump;
 
+    [Tooltip("転倒しているか")]
+    public bool is_Fall;
+
+    [Tooltip("梯子をつかんでいるか")]
+    public bool is_Climbing;
+
     // 接地しているか
     public bool is_Ground { get { return groundPoint.GetComponent<CheckGround>().is_Ground; } }
 
     // 頭をぶつけているか
     public bool is_HitHead { get { return headPoint.GetComponent<CheckGround>().is_Ground; } }
 
+    // デバフ
+
+    [Tooltip("蜘蛛の糸状態か")]
+    public bool is_SpiderThread;
+
+    [Tooltip("裂傷状態か")]
+    public bool is_Tear;
+
+    [SerializeField, Tooltip("蜘蛛の糸移動速度減少倍率")]
+    private float sTSpeedMag = 0.5f;
+    public float STSpeedMag { get { return sTSpeedMag; } }
+
+    [SerializeField, Tooltip("裂傷スタミナ倍率")]
+    private float tearStaminaMag = 2;
+    public float TearStaminaMag { get { return tearStaminaMag; } }
+
+    // タイマー
     public float staminaCoolTimer;
+
+    public float dashTimer;
 }

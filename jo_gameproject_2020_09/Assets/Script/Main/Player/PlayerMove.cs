@@ -32,7 +32,7 @@ public class PlayerMove : MonoBehaviour
             Move();
         }
         // 足場に乗るための空中制御
-        else
+        else if (!m_PlayerStatas.is_Climbing)
         {
             AirMove();
         }

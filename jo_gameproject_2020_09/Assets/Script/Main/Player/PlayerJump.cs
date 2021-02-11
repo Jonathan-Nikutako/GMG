@@ -30,8 +30,8 @@ public class PlayerJump : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        // 地上にいるときジャンプをする
-        if (m_statas.is_Ground && !Is_Jump)
+        // 地上かつ梯子をつかんでいないときジャンプをする
+        if (m_statas.is_Ground && !Is_Jump && !m_statas.is_Climbing)
         {
             if (jumpKeyInput)
             {
@@ -63,11 +63,16 @@ public class PlayerJump : MonoBehaviour
             var y_velocity = m_statas.JumpSpeed;
             rb.velocity = new Vector2(rb.velocity.x, y_velocity);
         }
-        else if (!m_statas.is_Ground)
+        // 地面についていない時　かつ　梯子に上っていないとき
+        else if (!m_statas.is_Ground && !m_statas.is_Climbing)
         {
             var y_velocity = m_statas.JumpSpeed;
             rb.velocity = new Vector2(rb.velocity.x, -y_velocity);
             jumpTimer = 0;
+        }
+        // 梯子につかまっているとき
+        else if (m_statas.is_Climbing)
+        {
         }
         else
         {
